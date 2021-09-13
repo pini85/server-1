@@ -7,9 +7,7 @@ const IFrame = () => {
       //! security
       // check origin
 
-      if (
-        e.origin == "https://613f20517240bc7bbd234a71--server-2.netlify.app/"
-      ) {
+      if (e.origin == "https://server-2.netlify.app/") {
         console.log(`origin is ${e.origin}`);
         //check message
         const data = JSON.parse(e.data);
