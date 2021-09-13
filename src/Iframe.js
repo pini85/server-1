@@ -28,7 +28,7 @@ const IFrame = () => {
     <div>
       <iframe
         style={{ height: "80vh", width: "100%" }}
-        src="http://localhost:3001/"
+        src="https://server-2.netlify.app/"
       />
       <div>{iData}</div>
     </div>
