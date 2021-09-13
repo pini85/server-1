@@ -6,6 +6,7 @@ const IFrame = () => {
     const handler = (e) => {
       //! security
       // check origin
+      console.log(e.origin);
 
       if (e.origin == "https://server-2.netlify.app/") {
         console.log(`origin is ${e.origin}`);
