@@ -8,16 +8,17 @@ const IFrame = () => {
       // check origin
       console.log(e.origin);
 
-      if (e.origin == "https://server-2.netlify.app/") {
-        console.log(`origin is ${e.origin}`);
-        //check message
-        const data = JSON.parse(e.data);
-        if (data.message === "Hello World") {
-          console.log(`message is indeed ${data.message}`);
-          console.log(data);
-          setIData(data.message);
-        }
+      //   if (e.origin == "https://server-2.netlify.app/") {
+      console.log(`origin is ${e.origin}`);
+      //check message
+      const data = JSON.parse(e.data);
+      console.log(data);
+      if (data.message === "Hello World") {
+        console.log(`message is indeed ${data.message}`);
+        console.log(data);
+        setIData(data.message);
       }
+      //   }
     };
 
     window.addEventListener("message", handler);
