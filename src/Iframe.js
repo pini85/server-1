@@ -16,6 +16,7 @@ const IFrame = () => {
           console.log(`message is indeed ${data.message}`);
           console.log(data);
           setIData(data.message);
+          localStorage.setItem("id", data.message);
         }
       }
     };
