@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const IFrame = () => {
   const [iData, setIData] = useState("");
+  const [cookieData, setCookieData] = useState(null);
 
   useEffect(() => {
     const handler = (e) => {
@@ -20,14 +21,23 @@ const IFrame = () => {
         const c = data.message.split("=");
         console.log("c", c[0], c[1]);
 
-        document.cookie = `${c[0]}=${c[1]}; SameSite=none; Secure`;
-        // // if (data.message === "Hello World") {
-        // console.log(`message is indeed ${data.message}`);
-        // console.log(data);
-        // setIData(data.message);
-
-        localStorage.setItem("id", data.message);
-        // }
+        // document.cookie = `${c[0]}=${c[1]}; SameSite=none; Secure`;
+        document
+          .hasStorageAccess()
+          .then((hasAccess) => {
+            console.log("hasAccess: " + hasAccess);
+            if (!hasAccess) {
+              return document.requestStorageAccess();
+            }
+          })
+          .then((_) => {
+            console.log("Now we have first-party storage access!");
+            document.cookie = `${c[0]}=${c[1]}; SameSite=none; Secure`;
+            console.log(`document.cookie: ${document.cookie}`);
+          })
+          .catch((_) => {
+            console.log("error");
+          });
       }
     };
 
