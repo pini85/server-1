@@ -6,8 +6,11 @@ const IFrame = () => {
     const handler = (e) => {
       //! security
       // check origin
-
-      if (e.origin == "https://server-2.netlify.app") {
+      console.log(e.origin);
+      if (
+        e.origin === "https://server-2.netlify.app" ||
+        e.origin === "http://localhost:3001"
+      ) {
         console.log(`origin is ${e.origin}`);
         //check message
         const data = JSON.parse(e.data);
@@ -30,7 +33,7 @@ const IFrame = () => {
     <div>
       <iframe
         style={{ height: "80vh", width: "100%" }}
-        src="https://server-2.netlify.app/"
+        src="http://localhost:3001/"
       />
       <div>{iData}</div>
     </div>
