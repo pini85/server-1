@@ -32,7 +32,7 @@ const IFrame = () => {
           })
           .then((_) => {
             console.log("Now we have first-party storage access!");
-            document.cookie = `${c[0]}=${c[1]}; SameSite=none; Secure; Domain=https://server-1.netlify.app/`;
+            document.cookie = `${c[0]}=${c[1]}; SameSite=none; Secure;`;
 
             console.log(`document.cookie: ${document.cookie}`);
           })
