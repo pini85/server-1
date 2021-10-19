@@ -6,21 +6,26 @@ const IFrame = () => {
     const handler = (e) => {
       //! security
       // check origin
-      console.log(e.origin);
+
       if (
         e.origin === "https://server-2.netlify.app" ||
         e.origin === "http://localhost:3001"
       ) {
         console.log(`origin is ${e.origin}`);
+
         //check message
         const data = JSON.parse(e.data);
-        console.log(data);
-        if (data.message === "Hello World") {
-          console.log(`message is indeed ${data.message}`);
-          console.log(data);
-          setIData(data.message);
-          localStorage.setItem("id", data.message);
-        }
+        console.log("data", data.message);
+        const c = data.message.split("=");
+        console.log("c", c[0], c[1]);
+        document.cookie = `${c[0]}=${c[1]}`;
+        // // if (data.message === "Hello World") {
+        // console.log(`message is indeed ${data.message}`);
+        // console.log(data);
+        // setIData(data.message);
+
+        localStorage.setItem("id", data.message);
+        // }
       }
     };
 
