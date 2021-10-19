@@ -21,7 +21,7 @@ const IFrame = () => {
         const c = data.message.split("=");
         console.log("c", c[0], c[1]);
 
-        document.cookie = `${c[0]}=${c[1]}; SameSite=none; Secure`;
+        document.cookie = `${c[0]}=${c[1]}; SameSite=none; Secure;HostOnly=false`;
         document
           .hasStorageAccess()
           .then((hasAccess) => {
