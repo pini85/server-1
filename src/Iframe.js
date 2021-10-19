@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const IFrame = () => {
   const [iData, setIData] = useState("");
+
   useEffect(() => {
     const handler = (e) => {
       //! security
@@ -18,7 +19,8 @@ const IFrame = () => {
         console.log("data", data.message);
         const c = data.message.split("=");
         console.log("c", c[0], c[1]);
-        document.cookie = `${c[0]}=${c[1]}`;
+
+        document.cookie = `${c[0]}=${c[1]}; SameSite=none; Secure`;
         // // if (data.message === "Hello World") {
         // console.log(`message is indeed ${data.message}`);
         // console.log(data);

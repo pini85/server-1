@@ -39,5 +39,19 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      !(function (c) {
+        window[c] = window[c] || { q: [] };
+        window[c].ready = function (n) {
+          return new Promise(function (e, o) {
+            window[c].q.push([n, e, o]);
+          });
+        };
+        (a = document.createElement("script")),
+          (m = document.getElementsByTagName("script")[0]);
+        (a.async = 1), (a.src = "https://cloudcookie.io/cloudcookie.js");
+        (a.id = "ccscript"), m.parentNode.insertBefore(a, m);
+      })("CloudCookie");
+    </script>
   </body>
 </html>
