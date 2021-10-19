@@ -29,12 +29,15 @@ const IFrame = () => {
       window.removeEventListener("message", handler);
     };
   }, []);
+  const url = () => {
+    if (process.env.NODE_ENV === "development") {
+      return "http://localhost:3001/";
+    }
+    return "https://server-2.netlify.app/";
+  };
   return (
     <div>
-      <iframe
-        style={{ height: "80vh", width: "100%" }}
-        src="http://localhost:3001/"
-      />
+      <iframe style={{ height: "80vh", width: "100%" }} src={url()} />
       <div>{iData}</div>
     </div>
   );
