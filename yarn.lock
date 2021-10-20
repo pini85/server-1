@@ -3236,11 +3236,6 @@
     "strip-ansi" "^6.0.0"
     "wrap-ansi" "^6.2.0"
 
-"cloud-cookie-sdk@^1.5.0":
-  "integrity" "sha512-wRHpHXn7LKjOg0oeIehnSXcj0vs8cHAqAIuRuq4LypRAq1am+limxR6+sQN8XeBYtetwsS9FPbEmxlzXIpoQ5w=="
-  "resolved" "https://registry.npmjs.org/cloud-cookie-sdk/-/cloud-cookie-sdk-1.5.0.tgz"
-  "version" "1.5.0"
-
 "co@^4.6.0":
   "integrity" "sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ="
   "resolved" "https://registry.npmjs.org/co/-/co-4.6.0.tgz"
@@ -9025,6 +9020,7 @@
     "text-table" "0.2.0"
 
 "react-dom@^17.0.2":
+  "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "version" "17.0.2"
   dependencies:
     "loose-envify" "^1.1.0"
