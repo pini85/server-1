@@ -28,6 +28,7 @@ const IFrame = () => {
         style={{ height: "80vh", width: "100%" }}
         src="https://server-2.netlify.app/"
       />
+      <h1>new build</h1>
       <button disabled={isEnabled}>Continue</button>
       {isEnabled && <div>enabled</div>}
     </div>
