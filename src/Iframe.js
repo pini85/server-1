@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const IFrame = () => {
-  const [isEnabled, setIsEnabled] = useState(false);
+  const [isDisabled, setDisabled] = useState(true);
   const [cookieData, setCookieData] = useState(null);
 
   useEffect(() => {
@@ -11,14 +11,14 @@ const IFrame = () => {
     });
     socket.addEventListener("message", function (event) {
       console.log("Message from server in server 1 ", event.data);
-      setIsEnabled(true);
+      setDisabled(false);
     });
   }, []);
 
   const url = () => {
-    if (process.env.NODE_ENV === "development") {
-      return "localhost:8080/";
-    }
+    // if (process.env.NODE_ENV === "development") {
+    //   return "localhost:8080/";
+    // }
     return "pini-backend-playground.herokuapp.com/";
   };
 
@@ -29,8 +29,7 @@ const IFrame = () => {
         src="https://server-2.netlify.app/"
       />
       <h1>new build</h1>
-      <button disabled={isEnabled}>Continue</button>
-      {isEnabled && <div>enabled</div>}
+      <button disabled={isDisabled}>Continue</button>
     </div>
   );
 };
