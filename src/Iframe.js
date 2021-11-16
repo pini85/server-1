@@ -36,7 +36,7 @@ const IFrame = () => {
   return (
     <div>
       <iframe style={{ height: "80vh", width: "100%" }} src={iframeUrl()} />
-      <h1>new build</h1>
+      <span>Inside Makes App</span>
       <button disabled={isDisabled}>Continue</button>
     </div>
   );
