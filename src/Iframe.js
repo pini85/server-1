@@ -5,7 +5,7 @@ const IFrame = () => {
   const [cookieData, setCookieData] = useState(null);
 
   useEffect(() => {
-    const socket = new WebSocket(`ws://${url()}`);
+    const socket = new WebSocket(`wss://${url()}`);
     socket.addEventListener("open", function (event) {
       console.log("Connected to WS Server from server1");
     });
