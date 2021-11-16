@@ -10,7 +10,7 @@ const IFrame = () => {
       console.log("Connected to WS Server from server1");
     });
     socket.addEventListener("message", function (event) {
-      console.log("Message from server ", event.data);
+      console.log("Message from server in server 1 ", event.data);
       setIsEnabled(true);
     });
   }, []);
@@ -29,6 +29,7 @@ const IFrame = () => {
         src="https://server-2.netlify.app/"
       />
       <button disabled={isEnabled}>Continue</button>
+      {isEnabled && <div>enabled</div>}
     </div>
   );
 };
