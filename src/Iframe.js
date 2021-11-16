@@ -3,31 +3,39 @@ import React, { useEffect, useState } from "react";
 const IFrame = () => {
   const [isDisabled, setDisabled] = useState(true);
   const [cookieData, setCookieData] = useState(null);
+  const studentId = 1234;
 
   useEffect(() => {
-    const socket = new WebSocket(`wss://${url()}`);
+    const url = () => {
+      if (process.env.NODE_ENV === "development") {
+        return "ws://localhost:8080/";
+      }
+      return "wss://pini-backend-playground.herokuapp.com";
+    };
+    const socket = new WebSocket(url());
     socket.addEventListener("open", function (event) {
       console.log("Connected to WS Server from server1");
     });
     socket.addEventListener("message", function (event) {
-      console.log("Message from server in server 1 ", event.data);
-      setDisabled(false);
+      const message = event.data.text();
+      message.then((data) => {
+        const parsedData = JSON.parse(data);
+        if (studentId === parsedData.studentId) {
+          setDisabled(false);
+        }
+      });
     });
   }, []);
-
-  const url = () => {
-    // if (process.env.NODE_ENV === "development") {
-    //   return "localhost:8080/";
-    // }
-    return "pini-backend-playground.herokuapp.com/";
+  const iframeUrl = () => {
+    if (process.env.NODE_ENV === "development") {
+      return "http://localhost:3009/";
+    }
+    return "https://server-2.netlify.app/";
   };
 
   return (
     <div>
-      <iframe
-        style={{ height: "80vh", width: "100%" }}
-        src="https://server-2.netlify.app/"
-      />
+      <iframe style={{ height: "80vh", width: "100%" }} src={iframeUrl()} />
       <h1>new build</h1>
       <button disabled={isDisabled}>Continue</button>
     </div>
